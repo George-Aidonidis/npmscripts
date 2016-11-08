@@ -1,0 +1,32 @@
+{
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "ignore": [
+      "./public/js/*.js"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error", 
+            "windows"
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "no-console": 1,
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+}
