@@ -1,0 +1,30 @@
+{
+  "name": "sass",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo 'no test here bitch!!!'",
+    "pretest": "npm run lint",
+    "lint": "eslint **/*.js *.js",
+    "build:sass": "node-sass ./client/scss/main.scss ./public/css/main.css",
+    "build:js": "browserify ./client/js/app.js | uglifyjs -mc > ./public/js/app.js",
+    "build:clean": "rimraf ./public/css/* && rimraf ./public/js/*",
+    "prebuild": "npm run build:clean",
+    "build": "npm run build:sass && npm run build:js"
+  },
+  "author": "George Aidonidis",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^13.1.1",
+    "clean-css": "^3.4.20",
+    "eslint": "^3.9.1",
+    "node-sass": "^3.11.2",
+    "nodemon": "^1.11.0",
+    "uglifyjs": "^2.4.10"
+  },
+  "dependencies": {
+    "rimraf": "^2.5.4"
+  }
+}
