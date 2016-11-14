@@ -1,7 +1,7 @@
 {
-  "name": "sass",
+  "name": "examplejs",
   "version": "0.0.1",
-  "description": "",
+  "description": "A node js app that implements various tasks via npm scripts",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -12,19 +12,27 @@
     "build:js": "browserify ./client/js/app.js | uglifyjs -mc > ./public/js/app.js",
     "build:clean": "rimraf ./public/css/* && rimraf ./public/js/*",
     "prebuild": "npm run build:clean",
-    "build": "npm run build:sass && npm run build:js"
+    "build": "npm run build:sass && npm run build:js",
+    "watch:lint": "watch 'npm run lint ' .",
+    "watch:server": "nodemon --ignore client --ignore public app.js"
   },
   "author": "George Aidonidis",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^4.0.33",
+    "@types/log4js": "0.0.32",
+    "@types/winston": "0.0.30",
     "browserify": "^13.1.1",
     "clean-css": "^3.4.20",
     "eslint": "^3.9.1",
     "node-sass": "^3.11.2",
     "nodemon": "^1.11.0",
-    "uglifyjs": "^2.4.10"
+    "uglifyjs": "^2.4.10",
+    "watch": "^1.0.1"
   },
   "dependencies": {
+    "express": "^4.14.0",
+    "log4js": "^1.0.1",
     "rimraf": "^2.5.4"
   }
 }

@@ -7,6 +7,9 @@
     "parserOptions": {
         "sourceType": "module"
     },
+    "globals": {
+      "process": true
+    },
     "ignore": [
       "./public/js/*.js"
     ],
@@ -17,7 +20,7 @@
         ],
         "linebreak-style": [
             "error", 
-            "windows"
+            "unix"
         ],
         "quotes": [
             "error",
