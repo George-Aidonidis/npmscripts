@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo 'no test here bitch!!!'",
+    "test": "tap test/test.hello.js",
     "pretest": "npm run lint",
     "lint": "eslint **/*.js *.js",
     "build:sass": "node-sass ./client/scss/main.scss ./public/css/main.css",
@@ -14,7 +14,11 @@
     "prebuild": "npm run build:clean",
     "build": "npm run build:sass && npm run build:js",
     "watch:lint": "watch 'npm run lint ' .",
-    "watch:server": "nodemon --ignore client --ignore public app.js"
+    "watch:test": "nodemon -q -x 'npm test '",
+    "watch:server": "nodemon --ignore client --ignore public app.js",
+    "watch:client": "watchify ./client/js/app.js -o ./public/js/app.js -dv",
+    "watch:browser": "live-reload --port 2001 public/",
+    "watch": "npm run watch:test & npm run watch:server & npm run watch:browser"
   },
   "author": "George Aidonidis",
   "license": "ISC",
@@ -25,10 +29,13 @@
     "browserify": "^13.1.1",
     "clean-css": "^3.4.20",
     "eslint": "^3.9.1",
+    "live-reload": "^1.1.0",
     "node-sass": "^3.11.2",
     "nodemon": "^1.11.0",
+    "tap": "^8.0.0",
     "uglifyjs": "^2.4.10",
-    "watch": "^1.0.1"
+    "watch": "^1.0.1",
+    "watchify": "^3.7.0"
   },
   "dependencies": {
     "express": "^4.14.0",

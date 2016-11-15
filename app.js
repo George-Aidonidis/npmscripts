@@ -10,6 +10,16 @@ const port = 2000;
 // logger.setLevel(process.env.LOG_LEVEL);
 // logger.info(process.env.LOG_LEVEL);
 
+app.use(express.static("public"));
+
+app.get("/", (req, res) => {
+  res.sendFile(__dirname+"/public/views/index.html");
+});
+
+app.get("/main", (req, res) => {
+  res.sendFile(__dirname+"/public/views/main.html");
+});
+
 app.listen(port, function (err) {
   if (err)
     logger.error(err);
