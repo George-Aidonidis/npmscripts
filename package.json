@@ -20,13 +20,21 @@
     "watch:lint": "watch 'npm run lint ' .",
     "watch:test": "nodemon -q -x 'npm test '",
     "watch:server": "nodemon --ignore client --ignore public app.js",
+    "watch:server:config": "nodemon --ignore $npm_package_config_ignoreClient --ignore $npm_package_config_ignorePublic app.js",
     "watch:client": "watchify ./client/js/app.js -o ./public/js/app.js -dv",
     "watch:browser": "live-reload --port 2001 public/",
     "watch": "npm run watch:test & npm run watch:server & npm run watch:browser",
     "version:major": "npm version major",
     "version:minor": "npm version minor",
     "version:patch": "npm version patch",
-    "push:origin": "git push --tags origin HEAD:master"
+    "prepush:origin": "echo 'Pushing code to git (master branch)'",
+    "push:origin": "git push --tags origin HEAD:master",
+    "deploy:prod": "npm test -s && npm run build -s  && npm run version:patch && npm run push:origin",
+    "deploy:prod:script": "bash ./scripts/deploy.sh"
+  },
+  "config": {
+    "ignoreClient": "client",
+    "ignorePublic": "public"
   },
   "author": "George Aidonidis",
   "license": "ISC",
