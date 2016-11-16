@@ -21,7 +21,8 @@ The `scripts` folder is supposed to contain any scripts to be used from `package
 
 ## <a name="scripts"></a> Npm scripts
 
-- **Lifecycle scripts included in examplejs (can be run with `npm {script}`:**
+- **Lifecycle scripts via `npm {script}`:**
+
 ### start
 ```
   node app.js
