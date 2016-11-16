@@ -1,6 +1,6 @@
 {
   "name": "examplejs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A node js app that implements various tasks via npm scripts",
   "main": "app.js",
   "repository": {
